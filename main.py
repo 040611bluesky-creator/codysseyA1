@@ -140,7 +140,31 @@ def search_prompt():
 
 
 def show_detail():
-    print("준비 중입니다")
+    print("\n[프롬프트 상세 보기]")
+    if not prompts:
+        print("저장된 프롬프트가 없습니다.")
+        return
+
+    show_list()
+    choice = input("프롬프트 번호: ").strip()
+    if not choice.isdigit():
+        print("잘못된 번호입니다.")
+        return
+
+    number = int(choice)
+    if number < 1 or number > len(prompts):
+        print("잘못된 번호입니다.")
+        return
+
+    prompt = prompts[number - 1]
+    star = "⭐" if prompt["favorite"] else "없음"
+    print("--------------------")
+    print(f"제목: {prompt['title']}")
+    print(f"카테고리: {prompt['category']}")
+    print(f"즐겨찾기: {star}")
+    print("--------------------")
+    print(prompt["content"])
+    print("--------------------")
 
 
 def toggle_favorite():
