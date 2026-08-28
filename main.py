@@ -224,7 +224,7 @@ def main():
         elif choice == "7":
             show_favorites()
         elif choice == "0":
-            print("프로그램을 종료합니다.")
+            print("이용해 주셔서 감사합니다. 다음에 또 만나요!")
             break
         else:
             print("잘못된 번호입니다. 다시 선택해 주세요.")
