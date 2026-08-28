@@ -98,7 +98,27 @@ def show_list():
 
 
 def show_by_category():
-    print("준비 중입니다")
+    print("\n[카테고리별 조회]")
+    for index, name in enumerate(CATEGORIES, start=1):
+        print(f"{index}. {name}")
+
+    while True:
+        choice = input("카테고리 번호: ").strip()
+        if choice.isdigit():
+            number = int(choice)
+            if 1 <= number <= len(CATEGORIES):
+                selected = CATEGORIES[number - 1]
+                break
+        print("목록에 있는 번호를 선택해 주세요.")
+
+    matched = [prompt for prompt in prompts if prompt["category"] == selected]
+    if not matched:
+        print("해당 카테고리에 프롬프트가 없습니다.")
+        return
+
+    for index, prompt in enumerate(matched, start=1):
+        star = " ⭐" if prompt["favorite"] else ""
+        print(f"{index}. [{prompt['category']}] {prompt['title']}{star}")
 
 
 def search_prompt():
