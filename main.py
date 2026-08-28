@@ -71,7 +71,7 @@ def choose_category():
 
 def add_prompt():
     print("\n[프롬프트 추가]")
-    title = input_not_empty("제목: ")
+    title = input_not_empty("제목: ")   
     content = input_not_empty("내용: ")
     category = choose_category()
 
@@ -224,7 +224,7 @@ def main():
         elif choice == "7":
             show_favorites()
         elif choice == "0":
-            print("이용해 주셔서 감사합니다. 다음에 또 만나요!")
+            print("프로그램을 종료합니다.")
             break
         else:
             print("잘못된 번호입니다. 다시 선택해 주세요.")
